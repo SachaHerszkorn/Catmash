@@ -16,15 +16,15 @@ import 'styles/index.scss';
 const { store, persistor } = configureStore();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading="loading" persistor={persistor}>
-        <Suspense fallback="loading">
-          <App />
-        </Suspense>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Provider store={store}>
+    <PersistGate loading="loading" persistor={persistor}>
+      <Suspense fallback="loading">
+        <App />
+      </Suspense>
+    </PersistGate>
+  </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root'),
 );
 

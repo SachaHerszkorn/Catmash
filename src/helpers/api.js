@@ -1,47 +1,47 @@
 import axios from 'axios';
 
 const API_URL = {
-  development: 'https://localhost:5000/',
+  development: 'http://localhost:5000/',
   production: 'https://catmashh-api.herokuapp.com/',
 };
 
-const requests = {
+const requestMethods = {
   getCats: () => 'cats',
-  getCat: ({ id }) => `cats/${id}`,
-  postCatVote: ({ id }) => `cats/${id}/vote`,
+  getCat: ({ _id }) => `cats/${_id}`,
+  postCatVote: ({ _id }) => `cats/${_id}/vote`,
 };
 
 const config = { headers: null };
 
 const CURRENT_API_URL = API_URL[process.env.NODE_ENV];
-const get = ({ request, extraParameters, withConfig = true }) =>
+const get = ({ requestMethod, extraParameters, withConfig = true }) =>
   axios.get(
-    `${CURRENT_API_URL}${requests[request](extraParameters)}`,
+    `${CURRENT_API_URL}${requestMethod(extraParameters)}`,
     withConfig && config,
   );
 
-const post = ({ request, extraParameters, body, withConfig = true }) =>
+const post = ({ requestMethod, extraParameters, body, withConfig = true }) =>
   axios.post(
-    `${CURRENT_API_URL}${requests[request](extraParameters)}`,
+    `${CURRENT_API_URL}${requestMethod(extraParameters)}`,
     body,
     withConfig && config,
   );
 
-const put = ({ request, extraParameters, body, withConfig = true }) =>
+const put = ({ requestMethod, extraParameters, body, withConfig = true }) =>
   axios.put(
-    `${CURRENT_API_URL}${requests[request](extraParameters)}`,
+    `${CURRENT_API_URL}${requestMethod(extraParameters)}`,
     body,
     withConfig && config,
   );
 
-const del = ({ request, extraParameters, body: data }) =>
-  axios.delete(`${CURRENT_API_URL}${requests[request](extraParameters)}`, {
+const del = ({ requestMethod, extraParameters, body: data }) =>
+  axios.delete(`${CURRENT_API_URL}${requestMethod(extraParameters)}`, {
     ...config,
     data,
   });
 
 export default {
-  requests,
+  requestMethods,
   get,
   post,
   put,
