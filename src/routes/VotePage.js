@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { Vote } from 'components/VotePage';
+
 function VotePage() {
-  return <div>VotePage</div>;
+  return <Vote />;
 }
 
 export default VotePage;

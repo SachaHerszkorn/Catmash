@@ -16,7 +16,12 @@ export default (state = { list: [], listIds: [] }, { type, payload }) => {
       const catIndex = state.listIds.findIndex(
         (catId) => catId === payload._id,
       );
-      newList[catIndex] = payload;
+      if (catIndex === -1) {
+        newList.push(payload);
+      } else {
+        console.log(payload);
+        newList[catIndex] = payload;
+      }
       return {
         ...state,
         list: newList,

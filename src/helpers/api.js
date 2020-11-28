@@ -8,6 +8,7 @@ const API_URL = {
 const requestMethods = {
   getCats: () => 'cats',
   getCat: ({ _id }) => `cats/${_id}`,
+  getCatMash: () => `mash`,
   postCatVote: ({ _id }) => `cats/${_id}/vote`,
 };
 
