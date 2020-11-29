@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { CatsList } from 'components/CatsPage';
+import { Cats } from 'components/Cat';
 
 function CatsPage() {
-  return <CatsList />;
+  return <Cats />;
 }
 
 export default CatsPage;

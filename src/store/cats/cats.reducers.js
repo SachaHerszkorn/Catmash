@@ -19,7 +19,6 @@ export default (state = { list: [], listIds: [] }, { type, payload }) => {
       if (catIndex === -1) {
         newList.push(payload);
       } else {
-        console.log(payload);
         newList[catIndex] = payload;
       }
       return {

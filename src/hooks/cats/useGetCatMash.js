@@ -12,7 +12,7 @@ const {
 function useGetCatMash() {
   const [hasGetCatMashError, setHasGetCatMashError] = useState();
   const [isGetCatMashLoading, setisGetCatMashLoading] = useState(true);
-  const [catMash, setCatMash] = useState();
+  const [catMash, setCatMash] = useState([]);
   const dispatch = useDispatch();
 
   const getCatMash = useCallback(async () => {

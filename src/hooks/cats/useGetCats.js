@@ -1,5 +1,5 @@
-import { useState, useEffect, shallowEqual } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import { setCatsSuccess } from 'store/cats/cats.actions';
 import { selectCatsListIds } from 'store/cats/cats.selectors';
@@ -14,23 +14,19 @@ function useGetCats() {
   const dispatch = useDispatch();
   const catsListIds = useSelector(selectCatsListIds, shallowEqual);
   const [hasGetCatsError, setHasGetCatsError] = useState();
-  const [isGetCatsLoading, setisGetCatsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
       try {
         const response = await api.get({ requestMethod });
         dispatch(setCatsSuccess(response.data));
-        setisGetCatsLoading(false);
       } catch (err) {
         setHasGetCatsError(err);
-        setisGetCatsLoading(false);
       }
     })();
   }, []);
 
   return {
-    isGetCatsLoading,
     hasGetCatsError,
     catsListIds,
   };

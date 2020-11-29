@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import { setCatSuccess } from 'store/cats/cats.actions';
 import { selectCatByIndex } from 'store/cats/cats.selectors';
@@ -27,7 +27,6 @@ function useGetCat({ catListIndex, catId }) {
           extraParameters: { _id: catId },
         });
         dispatch(setCatSuccess(response.data));
-        setisGetCatLoading(false);
       } catch (err) {
         setHasGetCatError(err);
         setisGetCatLoading(false);

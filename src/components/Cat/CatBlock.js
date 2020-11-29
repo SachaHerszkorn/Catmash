@@ -9,16 +9,16 @@ const propTypes = {
 };
 
 function CatBlock({ catListIndex, catId }) {
-  const { isGetCatLoading, hasGetCatError, cat } = useGetCat({
-    catListIndex,
-    catId,
-  });
+  const { cat, hasGetCatError } = useGetCat({ catListIndex, catId });
 
   return (
-    <div>
-      {isGetCatLoading && !cat && <div>loading</div>}
-      {hasGetCatError && !isGetCatLoading && <div>error</div>}
-      {cat._id}
+    <div
+      className="cat-block appear"
+      style={{ animationDelay: `${0.07 * catListIndex}s` }}
+    >
+      {hasGetCatError && <div>error</div>}
+      <img src={cat.url} alt={`cat-number-${catListIndex + 1}`} />
+      <div className="score">{cat.score}</div>
     </div>
   );
 }
