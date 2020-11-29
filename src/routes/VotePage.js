@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Vote } from 'components/VotePage';
+import { Vote } from 'components/Vote';
 
 function VotePage() {
   return <Vote />;
