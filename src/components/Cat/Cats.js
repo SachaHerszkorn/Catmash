@@ -13,7 +13,7 @@ function Cats() {
 
   return (
     <div className="cats-page">
-      {hasGetCatsError && <div>error</div>}
+      {hasGetCatsError && <div className="error-no-cats">error</div>}
       <CatsList
         title="hottest cats 🥇"
         list={firstCatsListIds}
