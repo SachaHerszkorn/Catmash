@@ -1,9 +1,0 @@
-@mixin gradient-background {
-  background: $blue-rg;
-  background: linear-gradient(63deg, $blue-rg 0%, $blue-br 100%);
-}
-
-@mixin gradient-background-white {
-  background: $white-br;
-  background: linear-gradient(63deg, $white-br 0%, $white-dr 100%);
-}
